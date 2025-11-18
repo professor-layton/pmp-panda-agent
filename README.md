@@ -13,3 +13,5 @@ poetry init --no-interaction
 
 poetry install
 poetry run python -c "from fastapi import FastAPI; print('FastAPI OK')"
+
+https://docs.langchain.com/langsmith/application-structure

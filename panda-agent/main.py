@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, FastAPI, Request
+from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from utils import BaseParentModel
+from agents.deploy import deploy_router
 
 app = FastAPI(
     title="PMP-Panda",
@@ -10,7 +11,7 @@ app = FastAPI(
     root_path_in_servers=False,
     docs_url="/docs",
     openapi_url="/openapi.json",
-    dependencies=[Depends()],
+    dependencies=[],
 )
 
 app.add_middleware(
@@ -21,16 +22,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-router = APIRouter(prefix="/copilot")
+top_router = APIRouter(prefix="/copilot")
 
 class HealthCheckResponse(BaseParentModel):
     message: str
 
-@router.get("/copilot/health", status_code=200)
+@top_router.get("/health", status_code=200)
 def health() -> HealthCheckResponse:
     return HealthCheckResponse(message="OK")
 
-app.include_router(router)
+app.include_router(top_router)
+app.include_router(deploy_router)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

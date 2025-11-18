@@ -1,0 +1,9 @@
+{
+    "dependencies": [
+        "."
+    ],
+    "graphs": {
+        "panda": "./panda-agent/agents/deploy.py:deploy_agent"
+    },
+    "env": "./env"
+}
