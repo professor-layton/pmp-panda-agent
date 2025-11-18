@@ -11,10 +11,21 @@ dependencies = [
     "langchain (==1.0.7)",
     "langchain-aws (==1.0.0)",
     "fastapi (==0.121.2)",
-    "uvicorn[standard] (==0.38.0)"
+    "uvicorn[standard] (==0.38.0)",
+    "pydantic (==2.12.4)"
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "panda-agent"
+version = "0.1.0"
+description = ""
+authors = ["weiqiang <weiqiang.chen@mendix.com>"]
+
+packages = [
+    { include = "panda-agent" }
+]
