@@ -15,3 +15,8 @@ poetry install
 poetry run python -c "from fastapi import FastAPI; print('FastAPI OK')"
 
 https://docs.langchain.com/langsmith/application-structure
+https://docs.langchain.com/langsmith/studio
+
+poetry add -D langsmith
+poetry add -D langgraph-cli
+poetry run langgraph dev --config panda-agent/langgraph.json
