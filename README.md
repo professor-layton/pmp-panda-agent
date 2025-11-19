@@ -20,3 +20,4 @@ https://docs.langchain.com/langsmith/studio
 poetry add -D langsmith
 poetry add -D langgraph-cli
 poetry run langgraph dev --config panda-agent/langgraph.json
+poetry run python panda-agent/main.py
